@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Diarize</string>
     <string name="action_settings">Settings</string>
+    <string name="hello_world">a1368277  Hello World!</string>
+    <string name="btn_login">Login via Facebook</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="log_out">log out</string>
 </resources>

@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "522611739694",
+    "firebase_url": "https://diarize-28128.firebaseio.com",
+    "project_id": "diarize-28128",
+    "storage_bucket": "diarize-28128.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:522611739694:android:c18b278bc7af0431",
+        "android_client_info": {
+          "package_name": "com.diarize"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "522611739694-0frs1kah7vpgjevtf7ihvgo4i2bq0vs4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBC_PCfwwOEoChsaNDMOWxgjwcDe7_Y4mM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
