@@ -34,7 +34,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login);
+        setContentView(R.layout.login_layout);
         btnGoogle = (SignInButton) findViewById(R.id.btn_google);
         mAuth = FirebaseAuth.getInstance();
         mAuthLisener = new FirebaseAuth.AuthStateListener() {
