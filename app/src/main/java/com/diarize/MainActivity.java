@@ -15,7 +15,6 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button btnLogOut;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthLisener;
 
@@ -27,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        btnLogOut = (Button) findViewById(R.id.btn_log_out);
         mAuth = FirebaseAuth.getInstance();
         mAuthLisener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -50,23 +48,6 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
-
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        switch (item.getItemId()) {
-//            case R.id.btn_log_out:
-//                btnLogOut.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        mAuth.signOut();
-//                    }
-//                });
-//                return true;
-//
-//
-//        }
-//        return super.onOptionsItemSelected(item);
-//    }
 
 
     @Override
