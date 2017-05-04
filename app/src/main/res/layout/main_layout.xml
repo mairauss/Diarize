@@ -6,10 +6,17 @@
     android:layout_height="match_parent"
     tools:context="com.diarize.MainActivity">
 
+    <android.support.v7.widget.ButtonBarLayout android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        />
+
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
+
+
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
@@ -20,8 +27,14 @@
 
     </android.support.design.widget.AppBarLayout>
 
-
-
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/calendarButton"
+        android:layout_width="wrap_content"
+        app:backgroundTint="@color/common_google_signin_btn_text_dark_pressed"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        app:fabSize="normal"
+        app:srcCompat="@android:drawable/ic_menu_today" />
 
 
 </android.support.design.widget.CoordinatorLayout>
