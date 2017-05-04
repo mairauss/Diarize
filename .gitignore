@@ -6,3 +6,6 @@
 /build
 /captures
 .externalNativeBuild
+._.DS_Store
+
+
