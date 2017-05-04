@@ -6,7 +6,7 @@ Current Tasks:
         ---> addVideoButton
         ---> addVoiceButton
         ---> addSmile
-        ---> Text area              ...in Progres(Maira)
+        ---> Text area                 ...in Progres(Maira)
         ---> addButton
 
     =============> Calendar View
