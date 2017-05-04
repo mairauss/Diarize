@@ -36,7 +36,6 @@
         app:fabSize="normal"
         app:srcCompat="@android:drawable/ic_menu_today" />
 
-
 </android.support.design.widget.CoordinatorLayout>
 
 
