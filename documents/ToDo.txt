@@ -6,10 +6,10 @@ Current Tasks:
         ---> addVideoButton
         ---> addVoiceButton
         ---> addSmile
-        ---> Text area
+        ---> Text area                 ...in Progres(Maira)
         ---> addButton
 
-    =============> History View
+    =============> Calendar View
         ---> Make Calendar
         ---> Make HistoryScroll
 
