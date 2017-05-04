@@ -1,6 +1,5 @@
 Current Tasks:
     =============> Main View
-        ---> calendarButton         ...in Progres(Yevhen)
         ---> currentDate            ...in Progres(Yevhen)
         ---> addPhotoButton
         ---> addVideoButton
@@ -27,6 +26,6 @@ Current Tasks:
 
 Done Tasks:
     ============> Loginifications View
-        ---> LogIn      (Yevhen)
-        ---> LogOut     (Yevhen)
- commit yngve  not an idiot testr3r   123
+        ---> LogIn              (Yevhen)
+        ---> LogOut             (Yevhen)
+        ---> calendarButton     (Yevhen)
