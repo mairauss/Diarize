@@ -29,3 +29,4 @@ Done Tasks:
         ---> LogIn              (Yevhen)
         ---> LogOut             (Yevhen)
         ---> calendarButton     (Yevhen)
+        ---> only :screenOrientation="portrait"     (Yevhen)
