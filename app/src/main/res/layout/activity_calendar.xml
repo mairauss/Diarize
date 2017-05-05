@@ -6,4 +6,28 @@
     android:layout_height="match_parent"
     tools:context="com.diarize.CalendarActivity">
 
+    <CalendarView
+        android:id="@+id/calendarView3"
+        android:layout_width="395dp"
+        android:layout_height="wrap_content"
+        android:background="@color/common_google_signin_btn_text_dark_pressed"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginTop="0dp"
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calendarView3" />
+
+
 </android.support.constraint.ConstraintLayout>
