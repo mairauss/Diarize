@@ -9,7 +9,6 @@ Current Tasks:
         ---> addButton
 
     =============> Calendar View
-        ---> Make Calendar
         ---> Make HistoryScroll
 
     =============> Item View
@@ -30,3 +29,4 @@ Done Tasks:
         ---> LogOut             (Yevhen)
         ---> calendarButton     (Yevhen)
         ---> only :screenOrientation="portrait"     (Yevhen)
+        ---> Make Calendar              (Yevhen)
