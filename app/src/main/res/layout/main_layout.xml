@@ -47,15 +47,15 @@
             style="@style/Widget.AppCompat.EditText"
             android:layout_width="283dp"
             android:layout_height="79dp"
+            android:layout_below="@+id/smile"
+            android:layout_centerHorizontal="true"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"
+            android:layout_marginTop="46dp"
             android:background="@color/cardview_light_background"
             android:elevation="3dp"
             android:inputType="textCapSentences|textAutoCorrect"
-            android:lines="20"
-            android:layout_above="@+id/save"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="60dp" />
+            android:lines="20" />
 
         <ImageButton
             android:id="@+id/addPhoto"
@@ -64,7 +64,7 @@
             android:layout_alignParentTop="true"
             android:layout_alignStart="@+id/addText"
             android:layout_marginTop="142dp"
-            app:srcCompat="@android:drawable/ic_menu_camera" />
+            app:srcCompat="@drawable/photo" />
 
         <ImageButton
             android:id="@+id/addVoice"
@@ -73,7 +73,7 @@
             android:layout_alignEnd="@+id/addText"
             android:layout_alignTop="@+id/addPhoto"
             android:layout_marginEnd="11dp"
-            app:srcCompat="@drawable/voice1" />
+            app:srcCompat="@drawable/voice" />
 
         <ImageButton
             android:id="@+id/addVideo"
@@ -82,7 +82,7 @@
             android:layout_alignTop="@+id/addVoice"
             android:layout_marginEnd="45dp"
             android:layout_toStartOf="@+id/addVoice"
-            app:srcCompat="@drawable/video1" />
+            app:srcCompat="@drawable/video" />
 
         <ImageButton
             android:id="@+id/smile"
@@ -91,33 +91,33 @@
             android:layout_alignStart="@+id/addPhoto"
             android:layout_below="@+id/addPhoto"
             android:layout_marginTop="55dp"
-            app:srcCompat="@drawable/smile" />
+            app:srcCompat="@drawable/happy" />
 
         <ImageButton
             android:id="@+id/smile1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/smile"
-            android:layout_marginStart="19dp"
+            android:layout_marginStart="17dp"
             android:layout_toEndOf="@+id/addPhoto"
-            app:srcCompat="@drawable/smile2" />
+            app:srcCompat="@drawable/confused" />
 
         <ImageButton
             android:id="@+id/smile2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/smile1"
-            android:layout_marginStart="30dp"
-            android:layout_toEndOf="@+id/smile1"
-            app:srcCompat="@drawable/smile3" />
+            android:layout_alignTop="@+id/smile3"
+            android:layout_marginEnd="8dp"
+            android:layout_toStartOf="@+id/addVoice"
+            app:srcCompat="@drawable/unhappy" />
 
         <ImageButton
             android:id="@+id/smile3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignEnd="@+id/addVoice"
-            android:layout_alignTop="@+id/smile2"
-            app:srcCompat="@drawable/smile1" />
+            android:layout_alignTop="@+id/smile1"
+            app:srcCompat="@drawable/mad" />
 
         <Button
             android:id="@+id/save"
@@ -125,17 +125,28 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="42dp"
+            android:layout_marginBottom="32dp"
             android:text="SAVE" />
 
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/addText"
-            android:layout_marginBottom="11dp"
-            android:layout_toStartOf="@+id/smile1"
-            android:text="TextView" />
+        <ImageView
+            android:id="@+id/uploadImage"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginBottom="75dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="440dp"/>
+
+        <VideoView
+            android:id="@+id/uploadVideo"
+            android:layout_width="150dp"
+            android:layout_height="75dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="75dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="592dp"/>
 
     </RelativeLayout>
 
