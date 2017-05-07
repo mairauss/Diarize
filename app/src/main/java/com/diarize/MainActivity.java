@@ -31,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_layout);
         setUpToolbar();
-        test();
 
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -65,10 +64,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void test() {
-        Intent intent = new Intent(this, ItemView.class);
-        startActivity(intent);
-    }
 
     private void setUpToolbar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
