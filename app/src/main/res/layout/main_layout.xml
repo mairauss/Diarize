@@ -47,16 +47,95 @@
             style="@style/Widget.AppCompat.EditText"
             android:layout_width="283dp"
             android:layout_height="79dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginBottom="57dp"
-            android:layout_marginEnd="39dp"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"
             android:background="@color/cardview_light_background"
             android:elevation="3dp"
             android:inputType="textCapSentences|textAutoCorrect"
-            android:lines="20" />
+            android:lines="20"
+            android:layout_above="@+id/save"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="60dp" />
+
+        <ImageButton
+            android:id="@+id/addPhoto"
+            android:layout_width="60dip"
+            android:layout_height="60dip"
+            android:layout_alignParentTop="true"
+            android:layout_alignStart="@+id/addText"
+            android:layout_marginTop="142dp"
+            app:srcCompat="@android:drawable/ic_menu_camera" />
+
+        <ImageButton
+            android:id="@+id/addVoice"
+            android:layout_width="60dip"
+            android:layout_height="60dip"
+            android:layout_alignEnd="@+id/addText"
+            android:layout_alignTop="@+id/addPhoto"
+            android:layout_marginEnd="11dp"
+            app:srcCompat="@drawable/voice1" />
+
+        <ImageButton
+            android:id="@+id/addVideo"
+            android:layout_width="60dip"
+            android:layout_height="60dip"
+            android:layout_alignTop="@+id/addVoice"
+            android:layout_marginEnd="45dp"
+            android:layout_toStartOf="@+id/addVoice"
+            app:srcCompat="@drawable/video1" />
+
+        <ImageButton
+            android:id="@+id/smile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/addPhoto"
+            android:layout_below="@+id/addPhoto"
+            android:layout_marginTop="55dp"
+            app:srcCompat="@drawable/smile" />
+
+        <ImageButton
+            android:id="@+id/smile1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/smile"
+            android:layout_marginStart="19dp"
+            android:layout_toEndOf="@+id/addPhoto"
+            app:srcCompat="@drawable/smile2" />
+
+        <ImageButton
+            android:id="@+id/smile2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/smile1"
+            android:layout_marginStart="30dp"
+            android:layout_toEndOf="@+id/smile1"
+            app:srcCompat="@drawable/smile3" />
+
+        <ImageButton
+            android:id="@+id/smile3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/addVoice"
+            android:layout_alignTop="@+id/smile2"
+            app:srcCompat="@drawable/smile1" />
+
+        <Button
+            android:id="@+id/save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="42dp"
+            android:text="SAVE" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/addText"
+            android:layout_marginBottom="11dp"
+            android:layout_toStartOf="@+id/smile1"
+            android:text="TextView" />
 
     </RelativeLayout>
 

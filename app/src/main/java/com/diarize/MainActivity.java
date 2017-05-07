@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -20,6 +21,10 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     TextView text;
+    ImageButton photo;
+    ImageButton video;
+    ImageButton voice;
+    Button save;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +42,26 @@ public class MainActivity extends AppCompatActivity {
         };
 
         text = (TextView) findViewById(R.id.addText);
-
+        photo = (ImageButton) findViewById(R.id.addPhoto);
+        photo.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+            }
+        });
+        video = (ImageButton) findViewById(R.id.addVideo);
+        video.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+            }
+        });
+        voice = (ImageButton) findViewById(R.id.addVoice);
+        voice.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+            }
+        });
+        save = (Button) findViewById(R.id.save);
+        save.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+            }
+        });
     }
 
     private void setUpToolbar() {
