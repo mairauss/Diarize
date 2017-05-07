@@ -1,6 +1,7 @@
 package com.diarize;
 
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -21,7 +22,7 @@ public class ItemView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.item_view);
 
-        shareButton =(Button) findViewById(R.id.share_button);
+        FloatingActionButton shareButton =(FloatingActionButton) findViewById(R.id.share_button);
 
         shareButton.setOnClickListener(new View.OnClickListener() {
             @Override
