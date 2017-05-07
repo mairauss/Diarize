@@ -12,7 +12,7 @@ Current Tasks:
         ---> Make HistoryScroll
 
     =============> Item View
-        ---> shareButton
+
         ---> smile
         ---> textView
         ---> contentView
@@ -30,3 +30,4 @@ Done Tasks:
         ---> calendarButton     (Yevhen)
         ---> only :screenOrientation="portrait"     (Yevhen)
         ---> Make Calendar              (Yevhen)
+           ---> shareButton          (Yngve)

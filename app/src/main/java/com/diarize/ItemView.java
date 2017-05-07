@@ -28,7 +28,7 @@ public class ItemView extends AppCompatActivity {
             public void onClick(View view){
 
                 shareIntent=new Intent(Intent.ACTION_SEND);
-                shareIntent.setType("Text/plain");
+                shareIntent.setType("text/plain");
                 shareIntent.putExtra(Intent.EXTRA_SUBJECT,"My App");
                 shareIntent.putExtra(Intent.EXTRA_TEXT,shareBody);
                 startActivity(Intent.createChooser(shareIntent,"Share Via"));
