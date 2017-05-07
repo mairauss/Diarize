@@ -19,7 +19,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".MainActivity"
             android:label=""
@@ -30,6 +29,7 @@
         <activity android:name=".CalendarActivity"
             android:screenOrientation="portrait"
             android:label="@string/title_activity_calendar"/>
+        <activity android:name=".ItemView"></activity>
     </application>
 
 </manifest>
