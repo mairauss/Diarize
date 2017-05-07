@@ -4,9 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTint="@color/colorAccent"
+    app:statusBarBackground="@color/colorPrimaryDark"
     tools:context="com.diarize.MainActivity">
 
-    <android.support.v7.widget.ButtonBarLayout android:layout_width="wrap_content"
+    <android.support.v7.widget.ButtonBarLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
         />
@@ -15,7 +18,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
-
 
 
         <android.support.v7.widget.Toolbar
@@ -30,11 +32,34 @@
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/calendarButton"
         android:layout_width="wrap_content"
-        app:backgroundTint="@color/common_google_signin_btn_text_dark_pressed"
         android:layout_height="wrap_content"
         android:clickable="true"
+        app:backgroundTint="@color/common_google_signin_btn_text_dark_pressed"
         app:fabSize="normal"
         app:srcCompat="@android:drawable/ic_menu_today" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/addText"
+            style="@style/Widget.AppCompat.EditText"
+            android:layout_width="283dp"
+            android:layout_height="79dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="57dp"
+            android:layout_marginEnd="39dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:background="@color/cardview_light_background"
+            android:elevation="3dp"
+            android:inputType="textCapSentences|textAutoCorrect"
+            android:lines="20" />
+
+    </RelativeLayout>
+
 
 </android.support.design.widget.CoordinatorLayout>
 
