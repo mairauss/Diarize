@@ -137,16 +137,6 @@
             android:layout_toStartOf="@+id/smile1"
             android:text="TextView" />
 
-        <Button
-            android:id="@+id/toItemBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/addText"
-            android:layout_alignParentTop="true"
-            android:layout_marginEnd="73dp"
-            android:layout_marginTop="160dp"
-            android:text="Button" />
-
     </RelativeLayout>
 
 
