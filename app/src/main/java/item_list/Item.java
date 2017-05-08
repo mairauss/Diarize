@@ -1,4 +1,4 @@
-package entitys;
+package item_list;
 
 import java.util.Date;
 

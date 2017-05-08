@@ -9,7 +9,7 @@ Current Tasks:
         ---> addButton
 
     =============> Calendar View
-        ---> Make HistoryScroll
+        ---> Make HistoryScroll       ... in Profress(Yevhen)
 
     =============> Item View
 
@@ -29,5 +29,5 @@ Done Tasks:
         ---> LogOut             (Yevhen)
         ---> calendarButton     (Yevhen)
         ---> only :screenOrientation="portrait"     (Yevhen)
-        ---> Make Calendar              (Yevhen)
-           ---> shareButton          (Yngve)
+        ---> Make Calendar        (Yevhen)
+        ---> shareButton          (Yngve)
