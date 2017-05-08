@@ -35,7 +35,7 @@ public class CalendarActivity extends AppCompatActivity {
 
     private String[] getArray() {
         String[] itemArr = new String[9];
-        itemArr[0] = "07.05.17  Dicko + Video";
+        itemArr[0] = "07.05.17  Dicko + Video"; // neu text
         itemArr[1] = "07.05.17  Dicko + Video";
         itemArr[2] = "07.05.17  Dicko + Video";
         itemArr[3] = "07.05.17  Dicko + Video";
