@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,59 +9,89 @@
     tools:context="com.diarize.ItemView">
 
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/share_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
-        android:clickable="true"
-        app:backgroundTint="@color/common_google_signin_btn_text_dark_pressed"
-        app:fabSize="normal"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="?attr/actionModeShareDrawable" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="91dp"
-        android:layout_height="131dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/sm0" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
 
-    <TextView
-        android:id="@+id/clock_item_view"
-        android:layout_width="146dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="43dp"
-        android:gravity="center"
-        android:text="13.05.2017 \n 15:00"
-        android:textColor="@color/colorAccent"
-        android:textSize="24sp"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="91dp"
+            android:layout_height="131dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/sm0" />
 
-    <TextView
+
+        <TextView
+            android:id="@+id/clock_item_view"
+            android:layout_width="146dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:gravity="center"
+            android:text="Today \n 15:00"
+            android:textColor="@color/colorAccent"
+            android:textSize="24sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_below="@+id/share_button"
+            android:layout_toStartOf="@+id/share_button"
+            android:layout_marginEnd="46dp" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/share_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            app:backgroundTint="@color/common_google_signin_btn_text_dark_pressed"
+            app:fabSize="normal"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="?attr/actionModeShareDrawable"
+            android:layout_alignTop="@+id/imageView2"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="10dp" />
+
+
+
+
+        <TextView
         android:id="@+id/item_text"
         android:layout_width="351dp"
         android:layout_height="93dp"
-        android:layout_marginTop="68dp"
-        android:gravity="center"
+            android:gravity="center"
         android:text="ich bin endlich in Paris. Hier ist so schön, ich bin schon in der Stadt verliebt!!! "
-        android:textColor="@color/colorAccent"
+        android:textColor="@color/cardview_light_background"
         android:textSize="24sp"
         app:layout_constraintTop_toBottomOf="@+id/clock_item_view"
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="65dp"
+            android:layout_below="@+id/imageView2"
+            android:layout_centerHorizontal="true" />
 
 
-</android.support.constraint.ConstraintLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/paris"
+            android:layout_marginTop="59dp"
+            android:layout_below="@+id/item_text"
+            android:layout_alignParentEnd="true" />
+
+        <!--Todo put Video inside -->
+        <!--<VideoView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content" />-->
+    </RelativeLayout>
+
+
+</ScrollView>
+
