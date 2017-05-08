@@ -15,6 +15,30 @@
       },
       "oauth_client": [
         {
+          "client_id": "522611739694-fsapcbrjm33613gij86s59q789qbqqa4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.diarize",
+            "certificate_hash": "3164c583324525dfe1d8044aa77934cd3b9b34c2"
+          }
+        },
+        {
+          "client_id": "522611739694-4fnv1dbps1orb8cinci0n6123g776uqs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.diarize",
+            "certificate_hash": "cd7c59ee92d82cf5383e49b4ea95a793a1e5377d"
+          }
+        },
+        {
+          "client_id": "522611739694-63iec3vfj1h83ci42to4pkn5j7tr8og2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.diarize",
+            "certificate_hash": "1e437f54dfa24f5ba3d7cd92136afefda48ec205"
+          }
+        },
+        {
           "client_id": "522611739694-0frs1kah7vpgjevtf7ihvgo4i2bq0vs4.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +53,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "522611739694-0frs1kah7vpgjevtf7ihvgo4i2bq0vs4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2

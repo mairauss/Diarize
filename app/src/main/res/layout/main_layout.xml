@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:backgroundTint="@color/colorAccent"
     app:statusBarBackground="@color/colorPrimaryDark"
-    tools:context="com.diarize.MainActivity">
+    tools:context="com.diarize.MainActivity1">
 
     <android.support.v7.widget.ButtonBarLayout
         android:layout_width="wrap_content"
@@ -147,6 +147,15 @@
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"
             android:layout_marginTop="592dp"/>
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/addText"
+            android:layout_below="@+id/smile"
+            android:layout_marginTop="17dp"
+            android:text="Note:" />
 
     </RelativeLayout>
 
