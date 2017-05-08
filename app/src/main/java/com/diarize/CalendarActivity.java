@@ -35,7 +35,7 @@ public class CalendarActivity extends AppCompatActivity {
 
 
     private String[] getArray() {
-        String[] itemArr = new String[7];
+        String[] itemArr = new String[9];
         itemArr[0] = "07.05.17  Heute habe ich den ersten Prüfung hintermir. Ich bin sehr froh!!!"; // neu text
         itemArr[1] = "08.05.17  Heute war ich mit mine Mutti shoppen. Ich habe sehr coole Tasche gekauft";
         itemArr[2] = "09.05.17  So ein kompliezierter Tag heute. Meine Studium ist do schwierig....";
@@ -44,9 +44,9 @@ public class CalendarActivity extends AppCompatActivity {
         itemArr[4] = "12.05.17  Ich bereite mich auf meine Reise nach Paris. Wir machen mit Steffi heute ein Mädchen Party";
         itemArr[5] = "14.05.17  Endlich ist unsere Projekt fertig, jetzt kann ich in Ruhe reisen und schönen Urlaub haben. " +
                 "Es war so toll in die Gruppe arbeiten";
-        itemArr[6] = "15.05.17  8:00 bin ich im Flughafen. Meine reise startet!!!! Ja, ic bin sehr froh, obwohl ich Angst habe.  " +
-                "15:00 ich bin endlich in Paris. Hier ist so schön, ich bin schon in der Stadt verliebt!!! " +
-                "18:00 ich war heute essen in einem tollen Local <Fengi>, ist teuer aber sehr gut!!!";
+        itemArr[6] = "15.05.17  8:00 bin ich im Flughafen. Meine reise startet!!!! Ja, ic bin sehr froh, obwohl ich Angst habe.  ";
+        itemArr[7] = "15:00 ich bin endlich in Paris. Hier ist so schön, ich bin schon in der Stadt verliebt!!! ";
+        itemArr[8] = "18:00 ich war heute essen in einem tollen Local \"Fengi\", ist teuer aber sehr gut!!!";
 
         return itemArr;
     }
