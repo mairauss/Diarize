@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 public class CalendarActivity extends AppCompatActivity {
 
@@ -36,7 +35,7 @@ public class CalendarActivity extends AppCompatActivity {
 
 
     private String[] getArray() {
-        String[] itemArr = new String[9];
+        String[] itemArr = new String[7];
         itemArr[0] = "07.05.17  Heute habe ich den ersten Prüfung hintermir. Ich bin sehr froh!!!"; // neu text
         itemArr[1] = "08.05.17  Heute war ich mit mine Mutti shoppen. Ich habe sehr coole Tasche gekauft";
         itemArr[2] = "09.05.17  So ein kompliezierter Tag heute. Meine Studium ist do schwierig....";
