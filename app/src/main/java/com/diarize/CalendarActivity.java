@@ -17,8 +17,10 @@ public class CalendarActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.calendar_layout);
+        setListView();
+    }
 
-
+    private void setListView() {
         ArrayAdapter adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, getArray());
         ListView listView = (ListView) findViewById(R.id.item_list);
         listView.setBackgroundColor(Color.WHITE);
