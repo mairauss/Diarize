@@ -146,7 +146,7 @@
             android:layout_marginBottom="75dp"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"
-            android:layout_marginTop="592dp"/>
+            android:layout_marginTop="492dp"/>
 
         <TextView
             android:id="@+id/textView6"

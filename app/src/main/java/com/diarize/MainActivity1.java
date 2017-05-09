@@ -18,13 +18,15 @@ import android.widget.TextView;
 import android.widget.VideoView;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.storage.StorageReference;
 
 public class MainActivity1 extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private static final int RES_IMAGE =1;
-    private static final int RES_VIDEO =1;
+    private static final int RES_VIDEO =2;
+    private StorageReference sr=null;
     TextView text;
     ImageButton photo;
     ImageButton video;
@@ -72,15 +74,11 @@ public class MainActivity1 extends AppCompatActivity {
         uploadImage = (ImageView) findViewById(R.id.uploadImage);
         uploadImage.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-               /* Intent galleryIntent  = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(galleryIntent,RES_IMAGE);*/
             }
         });
         uploadVideo = (VideoView) findViewById(R.id.uploadVideo);
         uploadVideo.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-               /* Intent galleryIntent  = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(galleryIntent,RES_IMAGE);*/
             }
         });
         save = (Button) findViewById(R.id.save);
@@ -140,12 +138,8 @@ public class MainActivity1 extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.btn_log_out) {
             mAuth.signOut();
             return true;

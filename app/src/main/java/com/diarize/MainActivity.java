@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private static final int RES_IMAGE =1;
-    private static final int RES_VIDEO =1;
+    private static final int RES_VIDEO =2;
     TextView text;
     ImageButton photo;
     ImageButton video;
@@ -72,17 +72,11 @@ public class MainActivity extends AppCompatActivity {
         });
         uploadImage = (ImageView) findViewById(R.id.uploadImage);
         uploadImage.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-               /* Intent galleryIntent  = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(galleryIntent,RES_IMAGE);*/
-            }
+            public void onClick(View v) {}
         });
         uploadVideo = (VideoView) findViewById(R.id.uploadVideo);
         uploadVideo.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-               /* Intent galleryIntent  = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(galleryIntent,RES_IMAGE);*/
-            }
+            public void onClick(View v) {}
         });
         save = (Button) findViewById(R.id.save);
         save.setOnClickListener(new View.OnClickListener() {
@@ -91,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == RES_IMAGE && resultCode == RESULT_OK && data != null)
         {
@@ -104,6 +98,7 @@ public class MainActivity extends AppCompatActivity {
             uploadVideo.setVideoURI(selectedVideo);
             uploadVideo.requestFocus();
             uploadVideo.start();
+
         }
 
     }
