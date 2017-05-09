@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 public class CalendarActivity extends AppCompatActivity {
 
@@ -17,8 +16,10 @@ public class CalendarActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.calendar_layout);
+        setListView();
+    }
 
-
+    private void setListView() {
         ArrayAdapter adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, getArray());
         ListView listView = (ListView) findViewById(R.id.item_list);
         listView.setBackgroundColor(Color.WHITE);
@@ -43,9 +44,9 @@ public class CalendarActivity extends AppCompatActivity {
         itemArr[4] = "12.05.17  Ich bereite mich auf meine Reise nach Paris. Wir machen mit Steffi heute ein Mädchen Party";
         itemArr[5] = "14.05.17  Endlich ist unsere Projekt fertig, jetzt kann ich in Ruhe reisen und schönen Urlaub haben. " +
                 "Es war so toll in die Gruppe arbeiten";
-        itemArr[6] = "15.05.17  8:00 bin ich im Flughafen. Meine reise startet!!!! Ja, ic bin sehr froh, obwohl ich Angst habe.  " +
-                "15:00 ich bin endlich in Paris. Hier ist so schön, ich bin schon in der Stadt verliebt!!! " +
-                "18:00 ich war heute essen in einem tollen Local <Fengi>, ist teuer aber sehr gut!!!";
+        itemArr[6] = "15.05.17  8:00 bin ich im Flughafen. Meine reise startet!!!! Ja, ic bin sehr froh, obwohl ich Angst habe.  ";
+        itemArr[7] = "15:00 ich bin endlich in Paris. Hier ist so schön, ich bin schon in der Stadt verliebt!!! ";
+        itemArr[8] = "18:00 ich war heute essen in einem tollen Local \"Fengi\", ist teuer aber sehr gut!!!";
 
         return itemArr;
     }
