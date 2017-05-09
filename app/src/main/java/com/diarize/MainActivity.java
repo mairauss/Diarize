@@ -1,6 +1,7 @@
 package com.diarize;
 
 import android.content.Intent;
+import android.media.MediaRecorder;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -8,9 +9,9 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -20,12 +21,17 @@ import android.widget.VideoView;
 
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.io.IOException;
+
 public class MainActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private static final int RES_IMAGE =1;
     private static final int RES_VIDEO =2;
+    private static final int RES_AUDIO =3;
+    private MediaRecorder mRecorder;
+    private static String mFileName = null;
     TextView text;
     ImageButton photo;
     ImageButton video;
@@ -66,9 +72,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         voice = (ImageButton) findViewById(R.id.addVoice);
-        voice.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-            }
+        voice.setOnTouchListener(new View.OnTouchListener() {
+                           public boolean onTouch(View v, MotionEvent event) {
+                    switch(event.getAction()){
+                        case MotionEvent.ACTION_DOWN:
+                            startRecording();
+                            break;
+                        case MotionEvent.ACTION_UP:
+                            stopRecording();
+                            break;
+                    }
+                    return false;
+                }
         });
         uploadImage = (ImageView) findViewById(R.id.uploadImage);
         uploadImage.setOnClickListener(new View.OnClickListener() {
@@ -101,6 +116,27 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
+    }
+
+    private void startRecording() {
+        mRecorder = new MediaRecorder();
+        mRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+        mRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
+        mRecorder.setOutputFile(mFileName);
+        mRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
+
+        try {
+            mRecorder.prepare();
+        } catch (IOException e) {
+        }
+
+        mRecorder.start();
+    }
+
+    private void stopRecording() {
+        mRecorder.stop();
+        mRecorder.release();
+        mRecorder = null;
     }
 
     private void test() {
