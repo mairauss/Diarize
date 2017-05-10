@@ -39,9 +39,10 @@
         app:srcCompat="@android:drawable/ic_menu_today" />
 
     <RelativeLayout
+        android:id="@+id/relativeLayout2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/relativeLayout2">
+        android:layout_height="match_parent">
+
 
         <EditText
             android:id="@+id/addText"
@@ -55,8 +56,9 @@
             android:layout_marginTop="46dp"
             android:background="@color/cardview_light_background"
             android:elevation="3dp"
-            android:inputType="textCapSentences|textAutoCorrect"
-            android:lines="20" />
+            android:inputType="textMultiLine"
+            android:lines="8"
+            android:minLines="6" />
 
         <ImageButton
             android:id="@+id/addPhoto"
@@ -125,11 +127,11 @@
             android:id="@+id/uploadImage"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:layout_marginBottom="75dp"
             android:layout_centerHorizontal="true"
+            android:layout_marginBottom="75dp"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"
-            android:layout_marginTop="440dp"/>
+            android:layout_marginTop="440dp" />
 
         <VideoView
             android:id="@+id/uploadVideo"
@@ -139,7 +141,7 @@
             android:layout_marginBottom="75dp"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"
-            android:layout_marginTop="492dp"/>
+            android:layout_marginTop="492dp" />
 
         <TextView
             android:id="@+id/textView6"
@@ -154,12 +156,12 @@
             android:id="@+id/current_data"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="40dp"
-            android:text="TextView"
-            android:textColor="@color/colorAccent"
-            android:textSize="24sp"
             android:layout_above="@+id/addVideo"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="40dp"
+            android:text="CurrentData"
+            android:textColor="@color/colorAccent"
+            android:textSize="24sp" />
 
     </RelativeLayout>
 
@@ -169,10 +171,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="top|left"
         android:clickable="true"
+        android:src="@drawable/ic_add_white_48dp"
         app:fabSize="normal"
         app:layout_anchor="@+id/relativeLayout2"
-        app:layout_anchorGravity="bottom|right"
-        android:src="@drawable/ic_add_white_48dp" />
+        app:layout_anchorGravity="bottom|right" />
 
 
 </android.support.design.widget.CoordinatorLayout>

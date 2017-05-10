@@ -8,15 +8,19 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.VideoView;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.StorageReference;
 
 import java.text.SimpleDateFormat;
@@ -35,7 +39,9 @@ public class MainActivity1 extends AppCompatActivity {
     ImageButton voice;
     ImageView uploadImage;
     VideoView uploadVideo;
+    String userId;
     private FloatingActionButton saveButton, calendarBtn;
+    private FirebaseDatabase database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +56,9 @@ public class MainActivity1 extends AppCompatActivity {
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 if (firebaseAuth.getCurrentUser() == null)
                     startActivity(new Intent(MainActivity1.this, LoginActivity.class));
+                else
+                   userId =  firebaseAuth.getCurrentUser().getUid();
+
             }
         };
 
@@ -87,6 +96,17 @@ public class MainActivity1 extends AppCompatActivity {
         saveButton = (FloatingActionButton) findViewById(R.id.save_button);
         saveButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                EditText addText = (EditText) findViewById(R.id.addText);
+                Log.i("myTag", addText.getText().toString());
+                Log.i("myTag", userId);
+
+
+                String text = addText.getText().toString();
+                database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef = database.getReference("users").child(userId).child("items");
+                myRef.push().setValue(text);
+
+
                 Intent intent = new Intent(v.getContext(), CalendarActivity.class);
                 startActivity(intent);
             }
