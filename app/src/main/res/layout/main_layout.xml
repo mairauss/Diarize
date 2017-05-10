@@ -150,6 +150,17 @@
             android:layout_marginTop="17dp"
             android:text="Note:" />
 
+        <TextView
+            android:id="@+id/current_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp"
+            android:text="TextView"
+            android:textColor="@color/colorAccent"
+            android:textSize="24sp"
+            android:layout_above="@+id/addVideo"
+            android:layout_centerHorizontal="true" />
+
     </RelativeLayout>
 
     <android.support.design.widget.FloatingActionButton

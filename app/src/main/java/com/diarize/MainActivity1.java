@@ -11,7 +11,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -20,6 +19,9 @@ import android.widget.VideoView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.storage.StorageReference;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class MainActivity1 extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
@@ -27,7 +29,7 @@ public class MainActivity1 extends AppCompatActivity {
     private static final int RES_IMAGE =1;
     private static final int RES_VIDEO =2;
     private StorageReference sr=null;
-    TextView text;
+    private  TextView text, currentDate;
     ImageButton photo;
     ImageButton video;
     ImageButton voice;
@@ -40,6 +42,7 @@ public class MainActivity1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_layout);
         setUpToolbar();
+        setUpCurrentDate();
 
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -88,6 +91,12 @@ public class MainActivity1 extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    private void setUpCurrentDate() {
+        currentDate = (TextView) findViewById(R.id.current_data);
+        String modifiedDate= new SimpleDateFormat("dd.MM.yyyy").format(new Date());
+        currentDate.setText(modifiedDate);
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
