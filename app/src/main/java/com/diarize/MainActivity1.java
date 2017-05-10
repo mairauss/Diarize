@@ -33,7 +33,7 @@ public class MainActivity1 extends AppCompatActivity {
     ImageButton voice;
     ImageView uploadImage;
     VideoView uploadVideo;
-    Button save;
+    private FloatingActionButton saveButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,9 +81,11 @@ public class MainActivity1 extends AppCompatActivity {
             public void onClick(View v) {
             }
         });
-        save = (Button) findViewById(R.id.save);
-        save.setOnClickListener(new View.OnClickListener() {
+        saveButton = (FloatingActionButton) findViewById(R.id.save_button);
+        saveButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), CalendarActivity.class);
+                startActivity(intent);
             }
         });
     }

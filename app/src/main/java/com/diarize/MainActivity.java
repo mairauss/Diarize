@@ -93,11 +93,11 @@ public class MainActivity extends AppCompatActivity {
         uploadVideo.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {}
         });
-        save = (Button) findViewById(R.id.save);
-        save.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-            }
-        });
+//        save = (Button) findViewById(R.id.save);
+//        save.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v) {
+//            }
+//        });
     }
 
      protected void onActivityResult(int requestCode, int resultCode, Intent data) {

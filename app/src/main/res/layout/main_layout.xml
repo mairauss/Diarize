@@ -40,7 +40,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:id="@+id/relativeLayout2">
 
         <EditText
             android:id="@+id/addText"
@@ -119,14 +120,6 @@
             android:layout_alignTop="@+id/smile1"
             app:srcCompat="@drawable/mad" />
 
-        <Button
-            android:id="@+id/save"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="32dp"
-            android:text="SAVE" />
 
         <ImageView
             android:id="@+id/uploadImage"
@@ -158,6 +151,17 @@
             android:text="Note:" />
 
     </RelativeLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/save_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|left"
+        android:clickable="true"
+        app:fabSize="normal"
+        app:layout_anchor="@+id/relativeLayout2"
+        app:layout_anchorGravity="bottom|right"
+        android:src="@drawable/ic_add_white_48dp" />
 
 
 </android.support.design.widget.CoordinatorLayout>
