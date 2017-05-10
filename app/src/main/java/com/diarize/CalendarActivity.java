@@ -4,18 +4,29 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+
 public class CalendarActivity extends AppCompatActivity {
 
+    private FirebaseDatabase firebaseDatabase;
+    private DatabaseReference reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.calendar_layout);
+        reference = FirebaseDatabase.getInstance().getReference();
         setListView();
     }
 
@@ -35,6 +46,31 @@ public class CalendarActivity extends AppCompatActivity {
 
 
     private String[] getArray() {
+
+        String userId = getIntent().getStringExtra("userId");
+        Log.i("myLog", " userId in Calendar= " + userId);
+
+
+        reference.child("users").child(userId).child("items").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                Log.i("myLog ", "" + snapshot.getChildrenCount());
+                for (DataSnapshot postSnapshot : snapshot.getChildren()) {
+                    String s = postSnapshot.getValue(String.class);
+                    Log.i("myLog", s);
+
+
+
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.e("The read failed: " ,databaseError.getMessage());
+            }
+        });
+
+
         String[] itemArr = new String[9];
         itemArr[0] = "07.05.17  Heute habe ich den ersten Prüfung hintermir. Ich bin sehr froh!!!"; // neu text
         itemArr[1] = "08.05.17  Heute war ich mit mine Mutti shoppen. Ich habe sehr coole Tasche gekauft";

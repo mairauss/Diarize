@@ -108,6 +108,7 @@ public class MainActivity1 extends AppCompatActivity {
 
 
                 Intent intent = new Intent(v.getContext(), CalendarActivity.class);
+                intent.putExtra("userId", userId);
                 startActivity(intent);
             }
         });
