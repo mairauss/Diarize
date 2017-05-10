@@ -26,16 +26,16 @@ public class MainActivity1 extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
-    private static final int RES_IMAGE =1;
-    private static final int RES_VIDEO =2;
-    private StorageReference sr=null;
-    private  TextView text, currentDate;
+    private static final int RES_IMAGE = 1;
+    private static final int RES_VIDEO = 2;
+    private StorageReference sr = null;
+    private TextView text, currentDate;
     ImageButton photo;
     ImageButton video;
     ImageButton voice;
     ImageView uploadImage;
     VideoView uploadVideo;
-    private FloatingActionButton saveButton;
+    private FloatingActionButton saveButton, calendarBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,15 +58,15 @@ public class MainActivity1 extends AppCompatActivity {
         photo = (ImageButton) findViewById(R.id.addPhoto);
         photo.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent galleryIntent  = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(galleryIntent,RES_IMAGE);
+                Intent galleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(galleryIntent, RES_IMAGE);
             }
         });
         video = (ImageButton) findViewById(R.id.addVideo);
         video.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent galleryIntent  = new Intent(Intent.ACTION_PICK, MediaStore.Video.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(galleryIntent,RES_VIDEO);
+                Intent galleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Video.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(galleryIntent, RES_VIDEO);
             }
         });
         voice = (ImageButton) findViewById(R.id.addVoice);
@@ -95,19 +95,16 @@ public class MainActivity1 extends AppCompatActivity {
 
     private void setUpCurrentDate() {
         currentDate = (TextView) findViewById(R.id.current_data);
-        String modifiedDate= new SimpleDateFormat("dd.MM.yyyy").format(new Date());
+        String modifiedDate = new SimpleDateFormat("dd.MM.yyyy").format(new Date());
         currentDate.setText(modifiedDate);
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == RES_IMAGE && resultCode == RESULT_OK && data != null)
-        {
+        if (requestCode == RES_IMAGE && resultCode == RESULT_OK && data != null) {
             Uri selectedImage = data.getData();
             uploadImage.setImageURI(selectedImage);
-        }
-       else if (requestCode == RES_VIDEO && resultCode == RESULT_OK && data != null)
-        {
+        } else if (requestCode == RES_VIDEO && resultCode == RESULT_OK && data != null) {
             Uri selectedVideo = data.getData();
             uploadVideo.setVideoURI(selectedVideo);
             uploadVideo.requestFocus();
@@ -125,7 +122,7 @@ public class MainActivity1 extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton calendarBtn = (FloatingActionButton) findViewById(R.id.calendarButton);
+        calendarBtn = (FloatingActionButton) findViewById(R.id.calendarButton);
         calendarBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), CalendarActivity.class);
