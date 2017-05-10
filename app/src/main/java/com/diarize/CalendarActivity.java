@@ -16,6 +16,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class CalendarActivity extends AppCompatActivity {
 
@@ -27,11 +30,11 @@ public class CalendarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.calendar_layout);
         reference = FirebaseDatabase.getInstance().getReference();
-        setListView();
+        getItemDataFromFb();
     }
 
-    private void setListView() {
-        ArrayAdapter adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, getArray());
+    private void setListView(List<String> list) {
+        ArrayAdapter adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, list);
         ListView listView = (ListView) findViewById(R.id.item_list);
         listView.setBackgroundColor(Color.WHITE);
         listView.setAdapter(adapter);
@@ -45,45 +48,48 @@ public class CalendarActivity extends AppCompatActivity {
     }
 
 
-    private String[] getArray() {
+    private void getItemDataFromFb() {
 
         String userId = getIntent().getStringExtra("userId");
         Log.i("myLog", " userId in Calendar= " + userId);
-
+        final List<String> list = new ArrayList<>();
 
         reference.child("users").child(userId).child("items").addValueEventListener(new ValueEventListener() {
+
             @Override
             public void onDataChange(DataSnapshot snapshot) {
                 Log.i("myLog ", "" + snapshot.getChildrenCount());
+
+
                 for (DataSnapshot postSnapshot : snapshot.getChildren()) {
                     String s = postSnapshot.getValue(String.class);
                     Log.i("myLog", s);
-
-
-
+                    list.add(s);
                 }
+                setListView(list); //callBack
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                Log.e("The read failed: " ,databaseError.getMessage());
+                Log.e("The read failed: ", databaseError.getMessage());
             }
         });
 
 
-        String[] itemArr = new String[9];
-        itemArr[0] = "07.05.17  Heute habe ich den ersten Prüfung hintermir. Ich bin sehr froh!!!"; // neu text
-        itemArr[1] = "08.05.17  Heute war ich mit mine Mutti shoppen. Ich habe sehr coole Tasche gekauft";
-        itemArr[2] = "09.05.17  So ein kompliezierter Tag heute. Meine Studium ist do schwierig....";
-        itemArr[3] = "10.05.17  Wir haben eine tolle Team, aber sind noch trotzdem nicht fertig mit dem Projekt. " +
-                "Ich hoffe wir schaffen es in nächste 3 Tage. Wir machen sehr viel zusammen";
-        itemArr[4] = "12.05.17  Ich bereite mich auf meine Reise nach Paris. Wir machen mit Steffi heute ein Mädchen Party";
-        itemArr[5] = "14.05.17  Endlich ist unsere Projekt fertig, jetzt kann ich in Ruhe reisen und schönen Urlaub haben. " +
-                "Es war so toll in die Gruppe arbeiten";
-        itemArr[6] = "15.05.17  8:00 bin ich im Flughafen. Meine reise startet!!!! Ja, ic bin sehr froh, obwohl ich Angst habe.  ";
-        itemArr[7] = "15:00 ich bin endlich in Paris. Hier ist so schön, ich bin schon in der Stadt verliebt!!! ";
-        itemArr[8] = "18:00 ich war heute essen in einem tollen Local \"Fengi\", ist teuer aber sehr gut!!!";
+//        String[] itemArr = new String[9];
+//        itemArr[0] = "07.05.17  Heute habe ich den ersten Prüfung hintermir. Ich bin sehr froh!!!"; // neu text
+//        itemArr[1] = "08.05.17  Heute war ich mit mine Mutti shoppen. Ich habe sehr coole Tasche gekauft";
+//        itemArr[2] = "09.05.17  So ein kompliezierter Tag heute. Meine Studium ist do schwierig....";
+//        itemArr[3] = "10.05.17  Wir haben eine tolle Team, aber sind noch trotzdem nicht fertig mit dem Projekt. " +
+//                "Ich hoffe wir schaffen es in nächste 3 Tage. Wir machen sehr viel zusammen";
+//        itemArr[4] = "12.05.17  Ich bereite mich auf meine Reise nach Paris. Wir machen mit Steffi heute ein Mädchen Party";
+//        itemArr[5] = "14.05.17  Endlich ist unsere Projekt fertig, jetzt kann ich in Ruhe reisen und schönen Urlaub haben. " +
+//                "Es war so toll in die Gruppe arbeiten";
+//        itemArr[6] = "15.05.17  8:00 bin ich im Flughafen. Meine reise startet!!!! Ja, ic bin sehr froh, obwohl ich Angst habe.  ";
+//        itemArr[7] = "15:00 ich bin endlich in Paris. Hier ist so schön, ich bin schon in der Stadt verliebt!!! ";
+//        itemArr[8] = "18:00 ich war heute essen in einem tollen Local \"Fengi\", ist teuer aber sehr gut!!!";
 
-        return itemArr;
+//        return itemArr;
+
     }
 }
