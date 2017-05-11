@@ -57,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
     String userId;
     private FloatingActionButton saveButton, calendarBtn;
     private FirebaseDatabase database;
+    private String modifiedDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -134,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
                 String text = addText.getText().toString();
                 database = FirebaseDatabase.getInstance();
                 DatabaseReference myRef = database.getReference("users").child(userId).child("items");
-                myRef.push().setValue(new Item(text, "datatest"));
+                myRef.push().setValue(new Item(text, modifiedDate));
 
 
 
@@ -147,7 +148,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void setUpCurrentDate() {
         currentDate = (TextView) findViewById(R.id.current_data);
-        String modifiedDate = new SimpleDateFormat("dd.MM.yyyy").format(new Date());
+        modifiedDate = new SimpleDateFormat("dd.MM.yyyy").format(new Date());
         currentDate.setText(modifiedDate);
     }
 
