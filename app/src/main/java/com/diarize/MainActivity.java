@@ -203,6 +203,7 @@ public class MainActivity extends AppCompatActivity {
         calendarBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), CalendarActivity.class);
+                intent.putExtra("userId", userId);
                 startActivity(intent);
             }
         });
