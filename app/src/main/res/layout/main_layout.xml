@@ -48,8 +48,10 @@
         android:layout_height="match_parent">
 
     <RelativeLayout
+        android:id="@+id/relativeLayout2"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
 
         <EditText
             android:id="@+id/addText"
@@ -63,8 +65,9 @@
             android:layout_marginTop="46dp"
             android:background="@color/cardview_light_background"
             android:elevation="3dp"
-            android:inputType="textCapSentences|textAutoCorrect"
-            android:lines="20" />
+            android:inputType="textMultiLine"
+            android:lines="8"
+            android:minLines="6" />
 
         <ImageButton
             android:id="@+id/addPhoto"
@@ -145,6 +148,7 @@
             android:layout_height="150dp"
             android:layout_marginBottom="75dp"
             android:layout_centerHorizontal="true"
+            android:layout_marginBottom="75dp"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"
             android:layout_marginTop="440dp"/>
@@ -160,13 +164,24 @@
             android:layout_marginTop="492dp"/>
 
         <TextView
-            android:id="@+id/note"
+            android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/addText"
             android:layout_below="@+id/smile"
             android:layout_marginTop="17dp"
             android:text="Note:" />
+
+        <TextView
+            android:id="@+id/current_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/addVideo"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="40dp"
+            android:text="CurrentData"
+            android:textColor="@color/colorAccent"
+            android:textSize="24sp" />
 
         <TextView
             android:id="@+id/recordText"
@@ -177,11 +192,25 @@
             android:layout_marginBottom="18dp"
             android:text="Audio message..." />
 
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/save_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|left"
+        android:clickable="true"
+        android:src="@drawable/ic_add_white_48dp"
+        app:fabSize="normal"
+        app:layout_anchor="@+id/relativeLayout2"
+        app:layout_anchorGravity="bottom|right" />
     </RelativeLayout>
 </FrameLayout>
 </ScrollView>
 
 </android.support.design.widget.CoordinatorLayout>
+
+
 
 
 
