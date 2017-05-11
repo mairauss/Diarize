@@ -134,10 +134,6 @@ public class MainActivity1 extends AppCompatActivity {
 
     }
 
-    private void test() {
-        Intent intent = new Intent(this, ItemView.class);
-        startActivity(intent);
-    }
 
     private void setUpToolbar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -147,6 +143,7 @@ public class MainActivity1 extends AppCompatActivity {
         calendarBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), CalendarActivity.class);
+                intent.putExtra("userId", userId);
                 startActivity(intent);
             }
         });
