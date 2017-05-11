@@ -12,6 +12,7 @@ public class ItemView extends AppCompatActivity {
 
     Intent shareIntent;
     String itemText;
+    String itemData;
 
 
     @Override
@@ -19,6 +20,7 @@ public class ItemView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.item_layout);
         itemText = getIntent().getStringExtra("itemText");
+        itemData = getIntent().getStringExtra("itemData");
 
         setItemText();
         setShareButton();
@@ -43,6 +45,9 @@ public class ItemView extends AppCompatActivity {
 
     private void setItemText() {
         TextView itemTextVIew = (TextView) findViewById(R.id.item_text);
+        TextView clockItemView = (TextView) findViewById(R.id.clock_item_view);
         itemTextVIew.setText(itemText);
+        clockItemView.setText(itemData);
+
     }
 }

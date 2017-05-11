@@ -24,11 +24,13 @@ public class CalendarActivity extends AppCompatActivity {
 
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference reference;
+    private ArrayList<Item> itemList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.calendar_layout);
+        itemList = new ArrayList<>();
         reference = FirebaseDatabase.getInstance().getReference();
         getItemDataFromFb();
     }
@@ -42,7 +44,8 @@ public class CalendarActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
                 Intent toItemLayout = new Intent(v.getContext(), ItemView.class);
-                toItemLayout.putExtra("itemText", list.get(position));
+                toItemLayout.putExtra("itemText", itemList.get(position).getText());
+                toItemLayout.putExtra("itemData", itemList.get(position).getData());
                 startActivity(toItemLayout);
             }
         });
@@ -64,9 +67,11 @@ public class CalendarActivity extends AppCompatActivity {
 
 
                 for (DataSnapshot postSnapshot : snapshot.getChildren()) {
-                    Item s = postSnapshot.getValue(Item.class);
-                    Log.i("myLog", s.getText());
-                    list.add(s.getData() + " " + s.getText());
+                    Item item = postSnapshot.getValue(Item.class);
+                    Log.i("myLog", item.getText());
+
+                    itemList.add(item);
+                    list.add(item.getData() + " " + item.getText());
                 }
                 if (list.size() != 0)
                     setListView(list); //callBack
