@@ -7,4 +7,6 @@
     <string name="log_out">log out</string>
     <string name="title_activity_calendar">Calendar</string>
     <string name="_13_05_2017_n_15_00">13.05.2017   15:00</string>
+    <string name="settings">settings</string>
+    <string name="help">help</string>
 </resources>

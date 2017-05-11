@@ -231,6 +231,16 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
 
+        if (id == R.id.settings) {
+            startActivity(new Intent(this, SettingsActivity.class));
+            return true;
+        }
+
+        if (id == R.id.help) {
+            mAuth.signOut();
+            return true;
+        }
+
         return super.onOptionsItemSelected(item);
     }
 }
