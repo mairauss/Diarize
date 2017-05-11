@@ -33,7 +33,7 @@ public class CalendarActivity extends AppCompatActivity {
         getItemDataFromFb();
     }
 
-    private void setListView(List<String> list) {
+    private void setListView(final List<String> list) {
         ArrayAdapter adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, list);
         ListView listView = (ListView) findViewById(R.id.item_list);
         listView.setBackgroundColor(Color.WHITE);
@@ -42,6 +42,7 @@ public class CalendarActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
                 Intent toItemLayout = new Intent(v.getContext(), ItemView.class);
+                toItemLayout.putExtra("itemText", list.get(position));
                 startActivity(toItemLayout);
             }
         });
@@ -74,22 +75,6 @@ public class CalendarActivity extends AppCompatActivity {
                 Log.e("The read failed: ", databaseError.getMessage());
             }
         });
-
-
-//        String[] itemArr = new String[9];
-//        itemArr[0] = "07.05.17  Heute habe ich den ersten Prüfung hintermir. Ich bin sehr froh!!!"; // neu text
-//        itemArr[1] = "08.05.17  Heute war ich mit mine Mutti shoppen. Ich habe sehr coole Tasche gekauft";
-//        itemArr[2] = "09.05.17  So ein kompliezierter Tag heute. Meine Studium ist do schwierig....";
-//        itemArr[3] = "10.05.17  Wir haben eine tolle Team, aber sind noch trotzdem nicht fertig mit dem Projekt. " +
-//                "Ich hoffe wir schaffen es in nächste 3 Tage. Wir machen sehr viel zusammen";
-//        itemArr[4] = "12.05.17  Ich bereite mich auf meine Reise nach Paris. Wir machen mit Steffi heute ein Mädchen Party";
-//        itemArr[5] = "14.05.17  Endlich ist unsere Projekt fertig, jetzt kann ich in Ruhe reisen und schönen Urlaub haben. " +
-//                "Es war so toll in die Gruppe arbeiten";
-//        itemArr[6] = "15.05.17  8:00 bin ich im Flughafen. Meine reise startet!!!! Ja, ic bin sehr froh, obwohl ich Angst habe.  ";
-//        itemArr[7] = "15:00 ich bin endlich in Paris. Hier ist so schön, ich bin schon in der Stadt verliebt!!! ";
-//        itemArr[8] = "18:00 ich war heute essen in einem tollen Local \"Fengi\", ist teuer aber sehr gut!!!";
-
-//        return itemArr;
 
     }
 }
