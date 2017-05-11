@@ -45,10 +45,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
     <RelativeLayout
 
         android:layout_width="match_parent"
@@ -134,15 +130,6 @@
             android:layout_alignTop="@+id/smile1"
             app:srcCompat="@drawable/mad" />
 
-        <Button
-            android:id="@+id/save"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="32dp"
-            android:text="SAVE" />
-
         <ImageView
             android:id="@+id/uploadImage"
             android:layout_width="150dp"
@@ -194,6 +181,8 @@
 
 
     </RelativeLayout>
+    </ScrollView>
+
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/save_button"
         android:layout_width="wrap_content"
@@ -204,9 +193,6 @@
         app:layout_anchor="@+id/relativeLayout2"
         app:layout_anchorGravity="bottom|right"
         android:src="@drawable/ic_add_white_48dp" />
-
-</FrameLayout>
-</ScrollView>
 
 </android.support.design.widget.CoordinatorLayout>
 
