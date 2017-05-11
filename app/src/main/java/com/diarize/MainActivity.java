@@ -1,14 +1,18 @@
 package com.diarize;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.media.MediaRecorder;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -18,20 +22,24 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.VideoView;
+import android.Manifest;
 
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.io.IOException;
 
+
 public class MainActivity extends AppCompatActivity {
+
+    private static final String TAG = "AudioRecordTest";
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private static final int RES_IMAGE =1;
     private static final int RES_VIDEO =2;
-    private static final int RES_AUDIO =3;
+    private static final int REQUEST_RECORD_AUDIO_PERMISSION =200;
     private MediaRecorder mRecorder;
-    private static String mFileName = null;
+    private String mFileName = null;
     TextView text;
     ImageButton photo;
     ImageButton video;
@@ -39,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView uploadImage;
     VideoView uploadVideo;
     Button save;
+    TextView recordText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +63,9 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(new Intent(MainActivity.this, LoginActivity.class));
             }
         };
+
+        mFileName= Environment.getExternalStorageDirectory() + "recorded_audio.3gp";
+
 
         text = (TextView) findViewById(R.id.addText);
         uploadImage = (ImageView) findViewById(R.id.uploadImage);
@@ -74,17 +86,24 @@ public class MainActivity extends AppCompatActivity {
         voice = (ImageButton) findViewById(R.id.addVoice);
         voice.setOnTouchListener(new View.OnTouchListener() {
                            public boolean onTouch(View v, MotionEvent event) {
-                    switch(event.getAction()){
-                        case MotionEvent.ACTION_DOWN:
-                            startRecording();
-                            break;
-                        case MotionEvent.ACTION_UP:
+                               Log.d(TAG,"I am here");
+                    if(event.getAction()==MotionEvent.ACTION_DOWN) {
+                        Log.d(TAG,"!!!record!!!");
+                        startRecording();
+                        recordText.setText("Recording..");
+                        Log.d(TAG,"!!!record 2!!!");
+                    }
+                    else if(event.getAction()==MotionEvent.ACTION_UP){
+                        Log.d(TAG,"!!!record stopped!!!");
                             stopRecording();
-                            break;
+                            recordText.setText("Stopped");
+                        Log.d(TAG,"!!!record stopped 2!!!");
                     }
                     return false;
                 }
         });
+
+        recordText = (TextView) findViewById(R.id.recordText);
         uploadImage = (ImageView) findViewById(R.id.uploadImage);
         uploadImage.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {}
@@ -128,6 +147,7 @@ public class MainActivity extends AppCompatActivity {
         try {
             mRecorder.prepare();
         } catch (IOException e) {
+            Log.e(TAG, "Audio prepare failed");
         }
 
         mRecorder.start();
