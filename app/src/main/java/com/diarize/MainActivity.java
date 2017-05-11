@@ -30,6 +30,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.StorageReference;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 
@@ -130,11 +131,11 @@ public class MainActivity extends AppCompatActivity {
                 Log.i("myTag", addText.getText().toString());
                 Log.i("myTag", userId);
 
-
                 String text = addText.getText().toString();
                 database = FirebaseDatabase.getInstance();
                 DatabaseReference myRef = database.getReference("users").child(userId).child("items");
-                myRef.push().setValue(text);
+                myRef.push().setValue(new Item(text, "datatest"));
+
 
 
                 Intent intent = new Intent(v.getContext(), CalendarActivity.class);
@@ -236,10 +237,6 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
 
-        if (id == R.id.help) {
-            mAuth.signOut();
-            return true;
-        }
 
         return super.onOptionsItemSelected(item);
     }

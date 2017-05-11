@@ -49,6 +49,7 @@ public class CalendarActivity extends AppCompatActivity {
     }
 
 
+    //get item for Firebase Databank
     private void getItemDataFromFb() {
 
         String userId = getIntent().getStringExtra("userId");
@@ -63,9 +64,9 @@ public class CalendarActivity extends AppCompatActivity {
 
 
                 for (DataSnapshot postSnapshot : snapshot.getChildren()) {
-                    String s = postSnapshot.getValue(String.class);
-                    Log.i("myLog", s);
-                    list.add(s);
+                    Item s = postSnapshot.getValue(Item.class);
+                    Log.i("myLog", s.getText());
+                    list.add(s.getData() + " " + s.getText());
                 }
                 if (list.size() != 0)
                     setListView(list); //callBack
