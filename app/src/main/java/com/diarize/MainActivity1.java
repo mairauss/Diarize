@@ -103,7 +103,8 @@ public class MainActivity1 extends AppCompatActivity {
 
                 String text = addText.getText().toString();
                 database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("users").child(userId).child("items");
+//                DatabaseReference myRef = database.getReference("users").child(userId).child("items");
+                DatabaseReference myRef = database.getReference("users/"+userId+"/items");
                 myRef.push().setValue(text);
 
 
