@@ -67,7 +67,8 @@ public class CalendarActivity extends AppCompatActivity {
                     Log.i("myLog", s);
                     list.add(s);
                 }
-                setListView(list); //callBack
+                if (list.size() != 0)
+                    setListView(list); //callBack
             }
 
             @Override
