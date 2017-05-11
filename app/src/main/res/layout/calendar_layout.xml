@@ -13,7 +13,8 @@
         android:background="@color/common_google_signin_btn_text_dark_pressed"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp" />
 
     <ListView
         android:id="@+id/item_list"
