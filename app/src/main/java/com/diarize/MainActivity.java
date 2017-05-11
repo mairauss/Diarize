@@ -6,10 +6,10 @@ import android.media.MediaRecorder;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.storage.StorageManager;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -18,15 +18,19 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.VideoView;
-import android.Manifest;
 
 import com.google.firebase.auth.FirebaseAuth;
-
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.StorageReference;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -38,16 +42,20 @@ public class MainActivity extends AppCompatActivity {
     private static final int RES_IMAGE =1;
     private static final int RES_VIDEO =2;
     private static final int REQUEST_RECORD_AUDIO_PERMISSION =200;
+    private StorageReference sr = null;
+    private TextView text, currentDate;
     private MediaRecorder mRecorder;
     private String mFileName = null;
-    TextView text;
+    StorageManager sm;
     ImageButton photo;
     ImageButton video;
     ImageButton voice;
     ImageView uploadImage;
     VideoView uploadVideo;
-    Button save;
     TextView recordText;
+    String userId;
+    private FloatingActionButton saveButton, calendarBtn;
+    private FirebaseDatabase database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +69,8 @@ public class MainActivity extends AppCompatActivity {
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 if (firebaseAuth.getCurrentUser() == null)
                     startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                else
+                    userId =  firebaseAuth.getCurrentUser().getUid();
             }
         };
 
@@ -112,11 +122,31 @@ public class MainActivity extends AppCompatActivity {
         uploadVideo.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {}
         });
-//        save = (Button) findViewById(R.id.save);
-//        save.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View v) {
-//            }
-//        });
+        saveButton = (FloatingActionButton) findViewById(R.id.save_button);
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                EditText addText = (EditText) findViewById(R.id.addText);
+                Log.i("myTag", addText.getText().toString());
+                Log.i("myTag", userId);
+
+
+                String text = addText.getText().toString();
+                database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef = database.getReference("users").child(userId).child("items");
+                myRef.push().setValue(text);
+
+
+                Intent intent = new Intent(v.getContext(), CalendarActivity.class);
+                intent.putExtra("userId", userId);
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void setUpCurrentDate() {
+        currentDate = (TextView) findViewById(R.id.current_data);
+        String modifiedDate = new SimpleDateFormat("dd.MM.yyyy").format(new Date());
+        currentDate.setText(modifiedDate);
     }
 
      protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -168,7 +198,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton calendarBtn = (FloatingActionButton) findViewById(R.id.calendarButton);
+        calendarBtn = (FloatingActionButton) findViewById(R.id.calendarButton);
         calendarBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), CalendarActivity.class);
@@ -192,12 +222,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.btn_log_out) {
             mAuth.signOut();
             return true;
