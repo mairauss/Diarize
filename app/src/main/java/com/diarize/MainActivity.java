@@ -3,6 +3,7 @@ package com.diarize;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.media.MediaRecorder;
+import android.media.session.MediaController;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -77,7 +78,8 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
-        mFileName= Environment.getExternalStorageDirectory() + "recorded_audio.3gp";
+        mFileName= Environment.getExternalStorageDirectory().getAbsolutePath();
+        mFileName += "/recorded_audio.3gp";
 
 
         text = (TextView) findViewById(R.id.addText);
@@ -96,6 +98,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(galleryIntent,RES_VIDEO);
             }
         });
+
+        recordText = (TextView) findViewById(R.id.recordText);
         voice = (ImageButton) findViewById(R.id.addVoice);
         voice.setOnTouchListener(new View.OnTouchListener() {
                            public boolean onTouch(View v, MotionEvent event) {
@@ -116,7 +120,6 @@ public class MainActivity extends AppCompatActivity {
                 }
         });
 
-        recordText = (TextView) findViewById(R.id.recordText);
         uploadImage = (ImageView) findViewById(R.id.uploadImage);
         uploadImage.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {}
@@ -125,6 +128,10 @@ public class MainActivity extends AppCompatActivity {
         uploadVideo.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {}
         });
+        uploadVideo.setMediaController(null);
+
+
+
         saveButton = (FloatingActionButton) findViewById(R.id.save_button);
         saveButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
