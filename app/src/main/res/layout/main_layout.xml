@@ -4,13 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:backgroundTint="@color/colorAccent"
-    app:statusBarBackground="@color/colorPrimaryDark"
-    tools:context="com.diarize.MainActivity">
+    app:statusBarBackground="@color/cardview_shadow_end_color"
+    tools:context="com.diarize.MainActivity"
+    android:background="#800080"
+    >
 
     <android.support.v7.widget.ButtonBarLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
 
         />
 
@@ -41,9 +43,21 @@
         app:srcCompat="@android:drawable/ic_menu_today" />
 
 
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/save_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|left"
+        android:clickable="true"
+        app:fabSize="normal"
+        app:layout_anchor="@+id/relativeLayout2"
+        app:layout_anchorGravity="bottom|right"
+        android:src="@drawable/ic_add_white_48dp"/>
+
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:fillViewport="false">
 
         <RelativeLayout
 
@@ -57,14 +71,14 @@
                 style="@style/Widget.AppCompat.EditText"
                 android:layout_width="283dp"
                 android:layout_height="79dp"
+                android:layout_below="@+id/textView6"
+                android:layout_centerHorizontal="true"
                 android:layout_marginLeft="40dp"
                 android:layout_marginRight="40dp"
                 android:background="@color/cardview_light_background"
                 android:elevation="3dp"
                 android:inputType="textCapSentences|textAutoCorrect"
-                android:lines="20"
-                android:layout_below="@+id/textView6"
-                android:layout_centerHorizontal="true" />
+                android:lines="20" />
 
             <ImageButton
                 android:id="@+id/addPhoto"
@@ -188,17 +202,6 @@
 
         </RelativeLayout>
     </ScrollView>
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/save_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|left"
-        android:clickable="true"
-        app:fabSize="normal"
-        app:layout_anchor="@+id/relativeLayout2"
-        app:layout_anchorGravity="bottom|right"
-        android:src="@drawable/ic_add_white_48dp"/>
 
 </android.support.design.widget.CoordinatorLayout>
 

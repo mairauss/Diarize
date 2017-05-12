@@ -35,9 +35,12 @@
             android:label="@string/title_activity_calendar"
             android:screenOrientation="portrait" />
         <activity android:name=".ItemView" />
-        <activity android:name=".SettingsActivity"
-            android:label="@string/Settings2"/>
-        <activity android:name=".HelpActivity"></activity>
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/Settings2" />
+        <activity android:name=".HelpActivity" />
+        <activity android:name=".ProfilActivity" />
+        <activity android:name=".AccountActivity"></activity>
     </application>
 
 </manifest>
