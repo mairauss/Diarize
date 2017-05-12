@@ -218,9 +218,7 @@ public class MainActivity extends AppCompatActivity {
         mRecorder.stop();
         mRecorder.release();
         mRecorder = null;
-
         uploadAudio();
-
     }
 
     private void uploadAudio() {
