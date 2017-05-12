@@ -24,6 +24,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.VideoView;
 
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -39,6 +40,8 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+
+import static android.R.attr.data;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -162,6 +165,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+
     private void setUpCurrentDate() {
         currentDate = (TextView) findViewById(R.id.current_data);
         modifiedDate = new SimpleDateFormat("dd.MM.yyyy").format(new Date());
@@ -174,6 +178,14 @@ public class MainActivity extends AppCompatActivity {
         {
             Uri selectedImage = data.getData();
             uploadImage.setImageURI(selectedImage);
+            Uri uri = data.getData();
+            StorageReference path = sr.child("Photos").child(uri.getLastPathSegment());
+            path.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    Toast.makeText(MainActivity.this, "Uploaded", Toast.LENGTH_LONG).show();
+                }
+            });
         }
        else if (requestCode == RES_VIDEO && resultCode == RESULT_OK && data != null)
         {
