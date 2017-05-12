@@ -169,7 +169,9 @@
             android:layout_above="@+id/smile1"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="18dp"
-            android:text="Audio message..." />
+            android:text="Audio message..."
+            android:textColor="@color/cardview_light_background"
+            android:textSize="18sp" />
 
         <ImageView
             android:id="@+id/uploadImage"

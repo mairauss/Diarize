@@ -1,5 +1,6 @@
 package com.diarize;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.media.MediaRecorder;
@@ -25,10 +26,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.VideoView;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+
+import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -59,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
     private FloatingActionButton saveButton, calendarBtn;
     private FirebaseDatabase database;
     private String modifiedDate;
+    private ProgressDialog pd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,9 +85,11 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
+        pd = new ProgressDialog(this);
         mFileName= Environment.getExternalStorageDirectory().getAbsolutePath();
         mFileName += "/recorded_audio.3gp";
 
+        sr= FirebaseStorage.getInstance().getReference();
 
         text = (TextView) findViewById(R.id.addText);
         uploadImage = (ImageView) findViewById(R.id.uploadImage);
@@ -107,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
                     if(event.getAction()==MotionEvent.ACTION_DOWN) {
                         Log.d(TAG,"!!!record!!!");
                         startRecording();
-                        recordText.setText("Recording..");
+                        recordText.setText("Recording...");
                         Log.d(TAG,"!!!record 2!!!");
                     }
                     else if(event.getAction()==MotionEvent.ACTION_UP){
@@ -197,6 +206,23 @@ public class MainActivity extends AppCompatActivity {
         mRecorder.stop();
         mRecorder.release();
         mRecorder = null;
+
+        uploadAudio();
+    }
+
+    private void uploadAudio() {
+
+        pd.setMessage("Uploading...");
+        pd.show();
+        StorageReference path = sr.child("Audio").child("recorded_audio.3gp");
+        Uri uri = Uri.fromFile(new File(mFileName));
+        path.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                pd.dismiss();
+                recordText.setText("Uploaded");
+            }
+        });
     }
 
     private void test() {
