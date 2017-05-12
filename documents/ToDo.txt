@@ -1,21 +1,21 @@
 Current Tasks:
     =============> Main View
-        ---> currentDate            ...in Progres(Yevhen)
-        ---> addPhotoButton
-        ---> addVideoButton
-        ---> addVoiceButton
-        ---> addSmile
+        ---> currentDate            ...Done(Yevhen)
+        ---> addPhotoButton         ...Done(Maira)
+        ---> addVideoButton              ...Done(Maira)
+        ---> addVoiceButton              ...Done(Maira)
+        ---> addSmile                    ...Done(Maira)
         ---> Text area                 ...in Progres(Maira)
-        ---> addButton
+        ---> addButton                  ...Done(Olexandra)
 
     =============> Calendar View
-        ---> Make HistoryScroll       ... in Profress(Yevhen)
+        ---> Make HistoryScroll       ...DONE(Yevhen)
 
     =============> Item View
 
-        ---> smile
-        ---> textView
-        ---> contentView
+        ---> smile                  ...Done(Yevhen)
+        ---> textView               ...Done(Yevhen)
+        ---> contentView            ...Done(Yngve)
 
     =============> Authentication View  (if we will have time)
 
