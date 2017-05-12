@@ -52,7 +52,6 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener mAuthListener;
     private static final int RES_IMAGE =1;
     private static final int RES_VIDEO =2;
-    private static final int REQUEST_RECORD_AUDIO_PERMISSION =200;
     private StorageReference sr = null;
     private TextView text, currentDate;
     private MediaRecorder mRecorder;
@@ -115,18 +114,13 @@ public class MainActivity extends AppCompatActivity {
         voice = (ImageButton) findViewById(R.id.addVoice);
         voice.setOnTouchListener(new View.OnTouchListener() {
                            public boolean onTouch(View v, MotionEvent event) {
-                               Log.d(TAG,"I am here");
                     if(event.getAction()==MotionEvent.ACTION_DOWN) {
-                        Log.d(TAG,"!!!record!!!");
                         startRecording();
                         recordText.setText("Recording...");
-                        Log.d(TAG,"!!!record 2!!!");
                     }
                     else if(event.getAction()==MotionEvent.ACTION_UP){
-                        Log.d(TAG,"!!!record stopped!!!");
                             stopRecording();
                             recordText.setText("Stopped");
-                        Log.d(TAG,"!!!record stopped 2!!!");
                     }
                     return false;
                 }
@@ -134,7 +128,9 @@ public class MainActivity extends AppCompatActivity {
 
         uploadImage = (ImageView) findViewById(R.id.uploadImage);
         uploadImage.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {}
+            public void onClick(View v) {
+
+            }
         });
         uploadVideo = (VideoView) findViewById(R.id.uploadVideo);
         uploadVideo.setOnClickListener(new View.OnClickListener() {
@@ -156,11 +152,12 @@ public class MainActivity extends AppCompatActivity {
                 DatabaseReference myRef = database.getReference("users").child(userId).child("items");
                 myRef.push().setValue(new Item(text, modifiedDate));
 
-
-
                 Intent intent = new Intent(v.getContext(), CalendarActivity.class);
                 intent.putExtra("userId", userId);
                 startActivity(intent);
+
+                Toast.makeText(MainActivity.this, "Saved", Toast.LENGTH_LONG).show();
+
             }
         });
     }
@@ -178,6 +175,7 @@ public class MainActivity extends AppCompatActivity {
         {
             Uri selectedImage = data.getData();
             uploadImage.setImageURI(selectedImage);
+            uploadImage.setVisibility(View.VISIBLE);
             Uri uri = data.getData();
             StorageReference path = sr.child("Photos").child(uri.getLastPathSegment());
             path.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -187,8 +185,10 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         }
+
        else if (requestCode == RES_VIDEO && resultCode == RESULT_OK && data != null)
         {
+            uploadVideo.setVisibility(View.VISIBLE);
             Uri selectedVideo = data.getData();
             uploadVideo.setVideoURI(selectedVideo);
             uploadVideo.requestFocus();
@@ -220,6 +220,7 @@ public class MainActivity extends AppCompatActivity {
         mRecorder = null;
 
         uploadAudio();
+
     }
 
     private void uploadAudio() {
@@ -237,10 +238,10 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void test() {
+    /*private void test() {
         Intent intent = new Intent(this, ItemView.class);
         startActivity(intent);
-    }
+    }*/
 
     private void setUpToolbar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);

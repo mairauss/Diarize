@@ -45,148 +45,148 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <RelativeLayout
+        <RelativeLayout
 
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/relativeLayout2">
+            android:id="@+id/relativeLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="40dp">
 
-        <EditText
-            android:id="@+id/addText"
-            style="@style/Widget.AppCompat.EditText"
-            android:layout_width="283dp"
-            android:layout_height="79dp"
-            android:layout_below="@+id/smile"
-            android:layout_centerHorizontal="true"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
-            android:layout_marginTop="46dp"
-            android:background="@color/cardview_light_background"
-            android:elevation="3dp"
-            android:inputType="textCapSentences|textAutoCorrect"
-            android:lines="20" />
+            <EditText
+                android:id="@+id/addText"
+                style="@style/Widget.AppCompat.EditText"
+                android:layout_width="283dp"
+                android:layout_height="79dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:background="@color/cardview_light_background"
+                android:elevation="3dp"
+                android:inputType="textCapSentences|textAutoCorrect"
+                android:lines="20"
+                android:layout_below="@+id/textView6"
+                android:layout_centerHorizontal="true" />
 
-        <ImageButton
-            android:id="@+id/addPhoto"
-            android:layout_width="60dip"
-            android:layout_height="60dip"
-            android:layout_alignParentTop="true"
-            android:layout_alignStart="@+id/addText"
-            android:layout_marginTop="142dp"
-            app:srcCompat="@drawable/photo" />
+            <ImageButton
+                android:id="@+id/addPhoto"
+                android:layout_width="60dip"
+                android:layout_height="60dip"
+                android:layout_alignParentTop="true"
+                android:layout_alignStart="@+id/addText"
+                android:layout_marginTop="142dp"
+                app:srcCompat="@drawable/photo" />
 
-        <ImageButton
-            android:id="@+id/addVoice"
-            android:layout_width="60dip"
-            android:layout_height="60dip"
-            android:layout_alignEnd="@+id/addText"
-            android:layout_alignTop="@+id/addPhoto"
-            android:layout_marginEnd="11dp"
-            android:padding="10dip"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/voice" />
+            <ImageButton
+                android:id="@+id/addVoice"
+                android:layout_width="60dip"
+                android:layout_height="60dip"
+                android:layout_alignEnd="@+id/addText"
+                android:layout_alignTop="@+id/addPhoto"
+                android:layout_marginEnd="11dp"
+                android:padding="10dip"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/voice" />
 
-        <ImageButton
-            android:id="@+id/addVideo"
-            android:layout_width="60dip"
-            android:layout_height="60dip"
-            android:layout_alignTop="@+id/addVoice"
-            android:layout_marginEnd="45dp"
-            android:layout_toStartOf="@+id/addVoice"
-            app:srcCompat="@drawable/video" />
+            <ImageButton
+                android:id="@+id/addVideo"
+                android:layout_width="60dip"
+                android:layout_height="60dip"
+                android:layout_alignTop="@+id/addVoice"
+                android:layout_marginEnd="45dp"
+                android:layout_toStartOf="@+id/addVoice"
+                app:srcCompat="@drawable/video" />
 
-        <ImageButton
-            android:id="@+id/smile"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/addPhoto"
-            android:layout_below="@+id/addPhoto"
-            android:layout_marginTop="55dp"
-            app:srcCompat="@drawable/happy" />
+            <ImageButton
+                android:id="@+id/smile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/addPhoto"
+                android:layout_below="@+id/addPhoto"
+                android:layout_marginTop="55dp"
+                app:srcCompat="@drawable/happy" />
 
-        <ImageButton
-            android:id="@+id/smile1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/smile"
-            android:layout_marginStart="17dp"
-            android:layout_toEndOf="@+id/addPhoto"
-            app:srcCompat="@drawable/confused" />
+            <ImageButton
+                android:id="@+id/smile1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/smile"
+                android:layout_marginStart="17dp"
+                android:layout_toEndOf="@+id/addPhoto"
+                app:srcCompat="@drawable/confused" />
 
-        <ImageButton
-            android:id="@+id/smile2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/smile3"
-            android:layout_marginEnd="8dp"
-            android:layout_toStartOf="@+id/addVoice"
-            app:srcCompat="@drawable/unhappy" />
+            <ImageButton
+                android:id="@+id/smile2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/smile3"
+                android:layout_marginEnd="8dp"
+                android:layout_toStartOf="@+id/addVoice"
+                app:srcCompat="@drawable/unhappy" />
 
-        <ImageButton
-            android:id="@+id/smile3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/addVoice"
-            android:layout_alignTop="@+id/smile1"
-            app:srcCompat="@drawable/mad" />
+            <ImageButton
+                android:id="@+id/smile3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/addVoice"
+                android:layout_alignTop="@+id/smile1"
+                app:srcCompat="@drawable/mad" />
 
-        <VideoView
-            android:id="@+id/uploadVideo"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_below="@+id/addText"
-            android:layout_centerHorizontal="true"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
-            android:layout_marginTop="26dp"
-            android:background="@android:color/transparent"
-            android:visibility="visible" />
+            <VideoView
+                android:id="@+id/uploadVideo"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_below="@+id/addText"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginTop="26dp"
+                android:background="@android:color/transparent"
+                android:visibility="gone" />
 
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/addText"
-            android:layout_below="@+id/smile"
-            android:layout_marginTop="17dp"
-            android:text="Note:" />
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/addText"
+                android:layout_below="@+id/smile"
+                android:layout_marginTop="17dp"
+                android:text="Note:"
+                android:textColor="@color/colorAccent" />
 
-        <TextView
-            android:id="@+id/current_data"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="40dp"
-            android:text="TextView"
-            android:textColor="@color/colorAccent"
-            android:textSize="24sp"
-            android:layout_above="@+id/addVideo"
-            android:layout_centerHorizontal="true" />
+            <TextView
+                android:id="@+id/current_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/addVideo"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="40dp"
+                android:text="TextView"
+                android:textColor="@color/colorAccent"
+                android:textSize="24sp" />
 
-        <TextView
-            android:id="@+id/recordText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/smile1"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="18dp"
-            android:text="Audio message..."
-            android:textColor="@color/cardview_light_background"
-            android:textSize="18sp" />
+            <TextView
+                android:id="@+id/recordText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/smile1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="18dp"
+                android:text="Audio message..."
+                android:textColor="@color/cardview_light_background"
+                android:textSize="18sp" />
 
-        <ImageView
-            android:id="@+id/uploadImage"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
-            android:scaleType="centerInside"
-            android:layout_below="@+id/uploadVideo"
-            android:layout_alignStart="@+id/addText"
-            android:layout_marginTop="5dp" />
+            <ImageView
+                android:id="@+id/uploadImage"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_alignStart="@+id/addText"
+                android:layout_below="@+id/uploadVideo"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginTop="5dp"
+                android:scaleType="centerInside"
+                android:visibility="gone" />
 
-
-
-    </RelativeLayout>
+        </RelativeLayout>
     </ScrollView>
 
     <android.support.design.widget.FloatingActionButton
@@ -198,7 +198,7 @@
         app:fabSize="normal"
         app:layout_anchor="@+id/relativeLayout2"
         app:layout_anchorGravity="bottom|right"
-        android:src="@drawable/ic_add_white_48dp" />
+        android:src="@drawable/ic_add_white_48dp"/>
 
 </android.support.design.widget.CoordinatorLayout>
 
