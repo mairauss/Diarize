@@ -87,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
+        /*Speichert Audio in EXTERNAL STORAGE*/
         pd = new ProgressDialog(this);
         mFileName= Environment.getExternalStorageDirectory().getAbsolutePath();
         mFileName += "/recorded_audio.3gp";
@@ -94,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
         sr= FirebaseStorage.getInstance().getReference();
 
         text = (TextView) findViewById(R.id.addText);
-        uploadImage = (ImageView) findViewById(R.id.uploadImage);
+        /*ImageButton fuer Foto, um die Fotos von EXTERNAL_STORAGE hochzuladen*/
         photo = (ImageButton) findViewById(R.id.addPhoto);
         photo.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -102,6 +103,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(galleryIntent,RES_IMAGE);
             }
         });
+        /*ImageButton fuer Video, um die Videos von EXTERNAL_STORAGE hochzuladen*/
         video = (ImageButton) findViewById(R.id.addVideo);
         video.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -109,7 +111,9 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(galleryIntent,RES_VIDEO);
             }
         });
-
+        /*ImageButton fuer Audio, um die Audios in EXTERNAL_STORAGE zu speichern
+        * mittels recordText sieht man, ob Audio Aufnahme durchgefuehrt wurde oder nicht
+        * wenn ja, dann sieht man statt "Recording...", und "Stopped, wenn Aufnahme abgeschlossen ist"*/
         recordText = (TextView) findViewById(R.id.recordText);
         voice = (ImageButton) findViewById(R.id.addVoice);
         voice.setOnTouchListener(new View.OnTouchListener() {
@@ -126,12 +130,14 @@ public class MainActivity extends AppCompatActivity {
                 }
         });
 
+        /*uploadImage ist fuer bereits hochgeladene Bilder*/
         uploadImage = (ImageView) findViewById(R.id.uploadImage);
         uploadImage.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
             }
         });
+        /*uploadImage ist fuer bereits hochgeladene Videos*/
         uploadVideo = (VideoView) findViewById(R.id.uploadVideo);
         uploadVideo.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {}
@@ -169,6 +175,8 @@ public class MainActivity extends AppCompatActivity {
         currentDate.setText(modifiedDate);
     }
 
+    /*Die Fotos und Videos werden auf Diarize App hochgeladen
+    * und noch die Fotos werden auf Firebase unter "Photos" Ordner gespeichert*/
      protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == RES_IMAGE && resultCode == RESULT_OK && data != null)
@@ -198,6 +206,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /*Audio Aufnahme wird gestartet*/
     private void startRecording() {
         mRecorder = new MediaRecorder();
         mRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
@@ -214,6 +223,7 @@ public class MainActivity extends AppCompatActivity {
         mRecorder.start();
     }
 
+    /*Audio Aufnahme wird gestopped*/
     private void stopRecording() {
         mRecorder.stop();
         mRecorder.release();
@@ -221,8 +231,8 @@ public class MainActivity extends AppCompatActivity {
         uploadAudio();
     }
 
+    /*Audio Aufnahme wird auf Firebase gespeichert*/
     private void uploadAudio() {
-
         pd.setMessage("Uploading...");
         pd.show();
         StorageReference path = sr.child("Audio").child("recorded_audio.3gp");
