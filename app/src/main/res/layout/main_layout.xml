@@ -164,7 +164,7 @@
                 android:layout_below="@+id/smile"
                 android:layout_marginTop="17dp"
                 android:text="Note:"
-                android:textColor="@color/colorAccent" />
+                android:textColor="@color/cardview_light_background" />
 
             <TextView
                 android:id="@+id/current_data"
@@ -174,7 +174,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="40dp"
                 android:text="TextView"
-                android:textColor="@color/colorAccent"
+                android:textColor="@color/cardview_light_background"
                 android:textSize="24sp" />
 
             <TextView
@@ -185,7 +185,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="18dp"
                 android:text="Audio message..."
-                android:textColor="@color/cardview_light_background"
+                android:textColor="@color/common_google_signin_btn_text_dark_default"
                 android:textSize="18sp" />
 
             <ImageView

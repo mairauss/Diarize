@@ -236,11 +236,10 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    /*private void test() {
+    private void test() {
         Intent intent = new Intent(this, ItemView.class);
         startActivity(intent);
-    }*/
-
+    }
     private void setUpToolbar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
