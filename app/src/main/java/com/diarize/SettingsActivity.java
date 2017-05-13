@@ -12,7 +12,7 @@ public class SettingsActivity extends AppCompatActivity {
     Button profil_button;
     Button account_button;
 
-    //settingsAcitvity schickt uns an 3 weiter seiten weiter, über dementspechend 3 Buttons -> help_button, profil_button, Account_utton,
+    //settingsAcitvity schickt uns an 3 weiter seiten weiter, über dementspechend 3 Buttons -> help_button, profil_button, Account_button,
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
