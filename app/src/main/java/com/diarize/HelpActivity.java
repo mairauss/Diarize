@@ -14,7 +14,7 @@ public class HelpActivity extends AppCompatActivity {
 
     Button b_send;
 
-
+    //hier haben wir eine helpActivity gemacht, in der man eine Email direkt (über eine seiner Email Applikationen) schicken kann
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
