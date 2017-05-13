@@ -1,12 +1,11 @@
 package com.diarize;
 
 /**
- * Created by yskorge on 11/05/17.
+ * Created by y.baidiuk on 06/05/2017.
+ * <p>
+ * Item Bean
  */
-
-
-
-class Item{
+public class Item {
     String text;
     String data;
 

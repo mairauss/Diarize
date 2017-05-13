@@ -7,6 +7,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+/** Created by y.baidiuk on 02/05/2017.
+ * <p>
+ * eatch of  item will be show eigene Text, Data, Smile , Video and Photos after onclick , with this Activity
+ */
 public class ItemView extends AppCompatActivity {
 
 

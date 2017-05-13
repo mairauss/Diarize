@@ -22,6 +22,11 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.GoogleAuthProvider;
 
+/** Created by y.baidiuk on 20/04/2017.
+ * <p>
+ * Here we have authenficatin with firebase (Google account) and atrion to main activity
+ * also a lot of business logic.
+ */
 public class LoginActivity extends AppCompatActivity {
 
     private static final int RC_SIGN_IN = 1;

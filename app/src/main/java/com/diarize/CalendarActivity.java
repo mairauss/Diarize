@@ -19,7 +19,11 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ *   Created by y.baidiuk on 01/05/2017.
+ * <p>
+ * CalendarActivity : here we have CalendatView am Top and ItemList below.
+ */
 public class CalendarActivity extends AppCompatActivity {
 
     private FirebaseDatabase firebaseDatabase;

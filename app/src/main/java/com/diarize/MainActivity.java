@@ -2,9 +2,7 @@ package com.diarize;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.media.MediaRecorder;
-import android.media.session.MediaController;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -19,7 +17,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -38,11 +35,12 @@ import com.google.firebase.storage.UploadTask;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 
-import static android.R.attr.data;
-
+/** Created by y.baidiuk on 21/04/2017.
+ * <p>
+ * hear user can create a new Item or simply go to CalendarActivity with the Button on the Top.
+ */
 
 public class MainActivity extends AppCompatActivity {
 
@@ -50,8 +48,8 @@ public class MainActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
-    private static final int RES_IMAGE =1;
-    private static final int RES_VIDEO =2;
+    private static final int RES_IMAGE = 1;
+    private static final int RES_VIDEO = 2;
     private StorageReference sr = null;
     private TextView text, currentDate;
     private MediaRecorder mRecorder;
@@ -83,32 +81,32 @@ public class MainActivity extends AppCompatActivity {
                 if (firebaseAuth.getCurrentUser() == null)
                     startActivity(new Intent(MainActivity.this, LoginActivity.class));
                 else
-                    userId =  firebaseAuth.getCurrentUser().getUid();
+                    userId = firebaseAuth.getCurrentUser().getUid();
             }
         };
 
         /*Speichert Audio in EXTERNAL STORAGE*/
         pd = new ProgressDialog(this);
-        mFileName= Environment.getExternalStorageDirectory().getAbsolutePath();
+        mFileName = Environment.getExternalStorageDirectory().getAbsolutePath();
         mFileName += "/recorded_audio.3gp";
 
-        sr= FirebaseStorage.getInstance().getReference();
+        sr = FirebaseStorage.getInstance().getReference();
 
         text = (TextView) findViewById(R.id.addText);
         /*ImageButton fuer Foto, um die Fotos von EXTERNAL_STORAGE hochzuladen*/
         photo = (ImageButton) findViewById(R.id.addPhoto);
         photo.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent galleryIntent  = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(galleryIntent,RES_IMAGE);
+                Intent galleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(galleryIntent, RES_IMAGE);
             }
         });
         /*ImageButton fuer Video, um die Videos von EXTERNAL_STORAGE hochzuladen*/
         video = (ImageButton) findViewById(R.id.addVideo);
         video.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent galleryIntent  = new Intent(Intent.ACTION_PICK, MediaStore.Video.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(galleryIntent,RES_VIDEO);
+                Intent galleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Video.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(galleryIntent, RES_VIDEO);
             }
         });
         /*ImageButton fuer Audio, um die Audios in EXTERNAL_STORAGE zu speichern
@@ -117,17 +115,16 @@ public class MainActivity extends AppCompatActivity {
         recordText = (TextView) findViewById(R.id.recordText);
         voice = (ImageButton) findViewById(R.id.addVoice);
         voice.setOnTouchListener(new View.OnTouchListener() {
-                           public boolean onTouch(View v, MotionEvent event) {
-                    if(event.getAction()==MotionEvent.ACTION_DOWN) {
-                        startRecording();
-                        recordText.setText("Recording...");
-                    }
-                    else if(event.getAction()==MotionEvent.ACTION_UP){
-                            stopRecording();
-                            recordText.setText("Stopped");
-                    }
-                    return false;
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    startRecording();
+                    recordText.setText("Recording...");
+                } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                    stopRecording();
+                    recordText.setText("Stopped");
                 }
+                return false;
+            }
         });
 
         /*uploadImage ist fuer bereits hochgeladene Bilder*/
@@ -140,10 +137,10 @@ public class MainActivity extends AppCompatActivity {
         /*uploadImage ist fuer bereits hochgeladene Videos*/
         uploadVideo = (VideoView) findViewById(R.id.uploadVideo);
         uploadVideo.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {}
+            public void onClick(View v) {
+            }
         });
         uploadVideo.setMediaController(null);
-
 
 
         saveButton = (FloatingActionButton) findViewById(R.id.save_button);
@@ -169,6 +166,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    /**
+     * show current Data on the window Top.
+     */
     private void setUpCurrentDate() {
         currentDate = (TextView) findViewById(R.id.current_data);
         modifiedDate = new SimpleDateFormat("dd.MM.yyyy").format(new Date());
@@ -177,10 +177,9 @@ public class MainActivity extends AppCompatActivity {
 
     /*Die Fotos und Videos werden auf Diarize App hochgeladen
     * und noch die Fotos werden auf Firebase unter "Photos" Ordner gespeichert*/
-     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == RES_IMAGE && resultCode == RESULT_OK && data != null)
-        {
+        if (requestCode == RES_IMAGE && resultCode == RESULT_OK && data != null) {
             Uri selectedImage = data.getData();
             uploadImage.setImageURI(selectedImage);
             uploadImage.setVisibility(View.VISIBLE);
@@ -192,10 +191,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Uploaded", Toast.LENGTH_LONG).show();
                 }
             });
-        }
-
-       else if (requestCode == RES_VIDEO && resultCode == RESULT_OK && data != null)
-        {
+        } else if (requestCode == RES_VIDEO && resultCode == RESULT_OK && data != null) {
             uploadVideo.setVisibility(View.VISIBLE);
             Uri selectedVideo = data.getData();
             uploadVideo.setVideoURI(selectedVideo);
@@ -250,6 +246,10 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ItemView.class);
         startActivity(intent);
     }
+
+    /**
+     * setUping of Toolbar
+     */
     private void setUpToolbar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
