@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
         /*ImageButton fuer Audio, um die Audios in EXTERNAL_STORAGE zu speichern
         * mittels recordText sieht man, ob Audio Aufnahme durchgefuehrt wurde oder nicht
         * wenn ja, dann sieht man statt "Recording...", und "Stopped, wenn Aufnahme abgeschlossen ist"*/
-        recordText = (TextView) findViewById(R.id.recordText);
+//        recordText = (TextView) findViewById(R.id.recordText);
 //        voice = (ImageButton) findViewById(R.id.addVoice);
 //        voice.setOnTouchListener(new View.OnTouchListener() {
 //            public boolean onTouch(View v, MotionEvent event) {

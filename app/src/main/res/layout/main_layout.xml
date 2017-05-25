@@ -125,7 +125,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:srcCompat="@drawable/unhappy"
-                android:layout_below="@+id/recordText"
+                android:layout_alignTop="@+id/smile1"
                 android:layout_toEndOf="@+id/smile1" />
 
             <ImageButton
@@ -133,9 +133,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:srcCompat="@drawable/mad"
-                android:layout_below="@+id/recordText"
-                android:layout_alignEnd="@+id/addVoice"
-                android:layout_marginEnd="11dp" />
+                android:layout_alignTop="@+id/smile2"
+                android:layout_toEndOf="@+id/smile2" />
 
             <VideoView
                 android:id="@+id/uploadVideo"
@@ -168,17 +167,6 @@
                 android:textSize="24sp"
                 android:layout_alignTop="@+id/addPhoto"
                 android:layout_centerHorizontal="true" />
-
-            <TextView
-                android:id="@+id/recordText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_above="@+id/smile1"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="18dp"
-                android:text="Audio message..."
-                android:textColor="@color/common_google_signin_btn_text_dark_default"
-                android:textSize="18sp" />
 
             <ImageView
                 android:id="@+id/uploadImage"
