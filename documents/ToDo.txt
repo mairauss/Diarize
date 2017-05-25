@@ -1,4 +1,29 @@
 Current Tasks:
+
+
+
+1 Video kann mit dem Camera together
+2 Ich wurde alle simple(4 eckige) buttons bearbeiten auf runde Buttons.
+3 Calendar wird seine zweck richtig tun  ===>DONE
+
+
+4Ich würde noch eine Taste “Neue Beitrag” hinzufügen machen.
+  ??? wo ? was >? wie ?
+
+5 Statt “Plus”Button ein “Häckchen”
+  ---> ich finde es unlogish + addieren . hackel is Ok
+
+6 Zusammenfassen würde ich es weiblicher gestalten und die Userfreundlichkeit versuchen zu verbessern, vor allem bie Beitrag
+===> Sag mir gar nichts
+
+7 Das alles für speichern funktioniert.  Noch mehr Datenschutz.
+ Ich würde vielleicht noch einen extra Sicherheit Schutz einbauen (wie z.B. Fingerprint)
+--- > schaffe ich nicht
+
+
+
+
+
     =============> Main View
         ---> currentDate            ...Done(Yevhen)
         ---> addPhotoButton         ...Done(Maira)
