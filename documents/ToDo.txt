@@ -2,8 +2,8 @@ Current Tasks:
 
 
 
-1 Video kann mit dem Camera together
-2 Ich wurde alle simple(4 eckige) buttons bearbeiten auf runde Buttons.
+1 Video kann mit dem Camera together  -- DONE
+2 Ich wurde alle simple(4 eckige) buttons bearbeiten auf runde Buttons.  -- DONE
 3 Calendar wird seine zweck richtig tun  ===>DONE
 
 

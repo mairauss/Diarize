@@ -56,8 +56,7 @@ public class MainActivity extends AppCompatActivity {
     private String mFileName = null;
     StorageManager sm;
     ImageButton photo;
-    ImageButton video;
-    ImageButton voice;
+//    ImageButton voice;
     ImageView uploadImage;
     VideoView uploadVideo;
     TextView recordText;
@@ -101,31 +100,24 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(galleryIntent, RES_IMAGE);
             }
         });
-        /*ImageButton fuer Video, um die Videos von EXTERNAL_STORAGE hochzuladen*/
-        video = (ImageButton) findViewById(R.id.addVideo);
-        video.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent galleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Video.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(galleryIntent, RES_VIDEO);
-            }
-        });
+
         /*ImageButton fuer Audio, um die Audios in EXTERNAL_STORAGE zu speichern
         * mittels recordText sieht man, ob Audio Aufnahme durchgefuehrt wurde oder nicht
         * wenn ja, dann sieht man statt "Recording...", und "Stopped, wenn Aufnahme abgeschlossen ist"*/
         recordText = (TextView) findViewById(R.id.recordText);
-        voice = (ImageButton) findViewById(R.id.addVoice);
-        voice.setOnTouchListener(new View.OnTouchListener() {
-            public boolean onTouch(View v, MotionEvent event) {
-                if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                    startRecording();
-                    recordText.setText("Recording...");
-                } else if (event.getAction() == MotionEvent.ACTION_UP) {
-                    stopRecording();
-                    recordText.setText("Stopped");
-                }
-                return false;
-            }
-        });
+//        voice = (ImageButton) findViewById(R.id.addVoice);
+//        voice.setOnTouchListener(new View.OnTouchListener() {
+//            public boolean onTouch(View v, MotionEvent event) {
+//                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+//                    startRecording();
+//                    recordText.setText("Recording...");
+//                } else if (event.getAction() == MotionEvent.ACTION_UP) {
+//                    stopRecording();
+//                    recordText.setText("Stopped");
+//                }
+//                return false;
+//            }
+//        });
 
         /*uploadImage ist fuer bereits hochgeladene Bilder*/
         uploadImage = (ImageView) findViewById(R.id.uploadImage);
